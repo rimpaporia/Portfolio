@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rimpa Poria - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-transform: uppercase;
+        }
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        header .content {
+            position: relative;
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+        .project-card, .tool-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .project-card:hover, .tool-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+        .tool-card {
+            padding: 15px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #6a0dad, #9370db);
+            color: white;
+            font-weight: bold;
+            min-width: 120px;
+            transition: background 0.3s ease;
+        }
+        .tool-card:hover {
+            background: linear-gradient(135deg, #9370db, #6a0dad);
+        }
+        .additional-info {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            padding: 10px;
+            background: #e0e0e0;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .info-visible {
+            display: block;
+            opacity: 1;
+        }
+        #toggle-info {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #6a0dad;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        #toggle-info:hover {
+            background-color: #9370db;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <video autoplay loop muted>
+            <source src="background.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1>Rimpa Poria</h1>
+            <p>Data Analyst | Python | Power BI | SQL</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Data Analyst specialising in visualisation and forecasting, passionate about transforming raw data into actionable insights.</p>
+        <button id="toggle-info">More Info</button>
+        <div class="additional-info" id="additional-info">
+            <p>I have experience working with various tools and technologies, including Python, SQL, and Power BI. My goal is to leverage data to drive business decisions and improve operational efficiency.</p>
+        </div>
+    </section>
+    
+    <section id="tools">
+        <h2>Tools & Technologies</h2>
+        <div class="tools-container">
+            <div class="tool-card">Python (Pandas, NumPy, Scikit-learn, Matplotlib, Dash)</div>
+            <div class="tool-card">Power BI (DAX), Looker Studio, Excel</div>
+            <div class="tool-card">SQL, R, QGIS, ETL Pipelines</div>
+            <div class="tool-card">Jupyter Notebook, Azure AI</div>
+            <div class="tool-card">Time Series Forecasting, Gaussian Distribution, KDE</div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid-container">
+            <div class="project-card">
+                <h3>Power BI Dashboard</h3>
+                <p>Interactive dashboard for energy monitoring.</p>
+                <a href="https://github.com/rimpaporia/Energy-Consumption-Dashboard" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Plotly Energy Visualisation</h3>
+                <p>Data visualisation using Python & Plotly Dash.</p>
+                <a href="https://liveastonac-my.sharepoint.com/my?id=%2Fpersonal%2F230304907%5Faston%5Fac%5Fuk%2FDocuments%2FEnergy%20Consumption%2FAppendix" target="_blank">View Project</a>
+            </div>
+            <div class="project-card">
+                <h3>Canteen Management System</h3>
+                <p>Developed a web-based canteen management system.</p>
+                <a href="https://github.com/rimpaporia/Canteen-Management-System" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:rimpaporia2@gmail.com">rimpaporia2@gmail.com</a></p>
+        <p>LinkedIn: <a href="#">LinkedIn Profile</a></p>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Rimpa Poria</p>
+    </footer>
+
+    <script>
+        document.getElementById("toggle-info").addEventListener("click", function() {
+            const additionalInfo = document.getElementById("additional-info");
+            if (additionalInfo.classList.contains("info-visible")) {
+                additionalInfo.classList.remove("info-visible");
+                this.textContent = "More Info";
+            } else {
+                additionalInfo.classList.add("info-visible");
+                this.textContent = "Less Info";
+            }
+        });
+    </script>
+</body>
+</html>
