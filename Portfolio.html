@@ -35,6 +35,32 @@
             padding: 80px 20px;
             background: rgba(0, 0, 0, 0.5);
         }
+        
+        /* Animated Gradient Text */
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #6a0dad, #9370db, #ffccff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 4s infinite linear alternate;
+        }
+        @keyframes gradientMove {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
+        /* Glowing hover effect */
+        p {
+            font-size: 1.2rem;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        p:hover {
+            color: #ffccff;
+            text-shadow: 0 0 10px rgba(255, 204, 255, 0.7);
+        }
+
+        /* Underline hover animation for nav links */
         nav ul {
             display: flex;
             justify-content: center;
@@ -45,10 +71,28 @@
             margin: 0 15px;
         }
         nav a {
+            position: relative;
+            padding-bottom: 5px;
             color: white;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #ffccff;
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -92,34 +136,6 @@
         .tool-card:hover {
             background: linear-gradient(135deg, #9370db, #6a0dad);
         }
-        .additional-info {
-            display: none;
-            margin-top: 20px;
-            text-align: left;
-            padding: 10px;
-            background: #e0e0e0;
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .info-visible {
-            display: block;
-            opacity: 1;
-        }
-        #toggle-info {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #6a0dad;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        #toggle-info:hover {
-            background-color: #9370db;
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body>
@@ -144,10 +160,6 @@
     <section id="about">
         <h2>About Me</h2>
         <p>Data Analyst specialising in visualisation and forecasting, passionate about transforming raw data into actionable insights.</p>
-        <button id="toggle-info">More Info</button>
-        <div class="additional-info" id="additional-info">
-            <p>I have experience working with various tools and technologies, including Python, SQL, and Power BI. My goal is to leverage data to drive business decisions and improve operational efficiency.</p>
-        </div>
     </section>
     
     <section id="tools">
@@ -172,7 +184,7 @@
             <div class="project-card">
                 <h3>Plotly Energy Visualisation</h3>
                 <p>Data visualisation using Python & Plotly Dash.</p>
-                <a href="https://liveastonac-my.sharepoint.com/my?id=%2Fpersonal%2F230304907%5Faston%5Fac%5Fuk%2FDocuments%2FEnergy%20Consumption%2FAppendix" target="_blank">View Project</a>
+                <a href="https://liveastonac-my.sharepoint.com" target="_blank">View Project</a>
             </div>
             <div class="project-card">
                 <h3>Canteen Management System</h3>
@@ -191,18 +203,5 @@
     <footer class="footer">
         <p>&copy; 2025 Rimpa Poria</p>
     </footer>
-
-    <script>
-        document.getElementById("toggle-info").addEventListener("click", function() {
-            const additionalInfo = document.getElementById("additional-info");
-            if (additionalInfo.classList.contains("info-visible")) {
-                additionalInfo.classList.remove("info-visible");
-                this.textContent = "More Info";
-            } else {
-                additionalInfo.classList.add("info-visible");
-                this.textContent = "Less Info";
-            }
-        });
-    </script>
 </body>
 </html>
